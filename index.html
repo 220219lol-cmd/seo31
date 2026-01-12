@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>USDT 转账安全自检（2025）：防剪贴板替换/假客服/假网站 一套流程搞定</title>
+  <meta name="description" content="USDT 转账最常见损失来自“地址被替换、假客服诱导、假网站钓鱼”。本页提供 60 秒自检清单、留证要点、工单模板与FAQPage JSON-LD，适合手机与电脑使用。">
+  <meta name="keywords" content="USDT 转账安全,地址被替换,剪贴板替换,假客服,假网站钓鱼,前6后6,TXID留证,USDT 防骗" />
+  <link rel="canonical" href="https://220219lol-cmd.github.io/seo31/" />
+
+  <style>
+    :root{
+      --bg:#06160f;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:#eafff2;
+      --muted:rgba(234,255,242,.72);
+      --green:#22c55e;
+      --green2:#16a34a;
+      --gold:#f4d07b;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 520px at 12% 0%, rgba(34,197,94,.28), transparent 55%),
+        radial-gradient(900px 420px at 88% 12%, rgba(244,208,123,.18), transparent 60%),
+        linear-gradient(180deg, #04110b 0%, #06160f 40%, #04110b 100%);
+      line-height:1.9;
+    }
+    a{color:inherit}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 16px 70px}
+    .hero{
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 12px;border-radius:999px;
+      background:rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.35);
+      color:#d9ffe7;font-weight:900;font-size:12px;
+    }
+    h1{margin:12px 0 6px;font-size:28px;letter-spacing:.2px}
+    .sub{margin:0;color:var(--muted);max-width:980px}
+
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:999px;text-decoration:none;
+      font-weight:900;font-size:14px;
+      border:1px solid rgba(34,197,94,.35);
+      background:linear-gradient(90deg, rgba(34,197,94,.18), rgba(34,197,94,.06));
+      color:#eafff2;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background:linear-gradient(90deg, var(--green), var(--green2));
+      color:#032012;
+      box-shadow:0 12px 30px rgba(34,197,94,.25);
+    }
+    .btn.gold{
+      border-color:rgba(244,208,123,.45);
+      background:linear-gradient(90deg, rgba(244,208,123,.22), rgba(244,208,123,.08));
+      color:#fff6dd;
+    }
+    .btn:hover{transform:translateY(-1px);transition:.15s}
+
+    .kpis{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:16px}
+    .kpi{
+      grid-column:span 4;
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      background:rgba(255,255,255,.06);
+      padding:14px;
+    }
+    .kpi b{display:block;font-size:14px}
+    .kpi p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    @media(max-width:900px){.kpi{grid-column:span 12} h1{font-size:24px}}
+
+    .section{
+      margin-top:16px;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+    .section h2{margin:0 0 10px;font-size:20px;color:#d9ffe7}
+    .lead{margin:0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .card{
+      grid-column:span 6;
+      border:1px solid var(--line);
+      border-radius:var(--r);
+      background:rgba(255,255,255,.06);
+      padding:14px;
+    }
+    @media(max-width:900px){.card{grid-column:span 12}}
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card ul{margin:0;padding-left:18px;color:var(--muted)}
+    .card li{margin:6px 0}
+
+    .check{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(0,0,0,.14);
+    }
+    .row{display:flex;gap:12px;align-items:flex-start;padding:12px 14px}
+    .row+.row{border-top:1px solid var(--line)}
+    .box{
+      width:26px;height:26px;border-radius:8px;flex:0 0 26px;
+      border:2px solid rgba(34,197,94,.35);
+      background:rgba(34,197,94,.10);
+      box-shadow:0 10px 20px rgba(34,197,94,.06) inset;
+    }
+    .row b{display:block}
+    .row p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+    .code{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#0b1220;
+      color:#e5e7eb;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:13px;
+      overflow:auto;
+    }
+    .callout{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:18px;
+      border:1px dashed rgba(244,208,123,.55);
+      background:rgba(244,208,123,.10);
+      color:#fff6dd;
+      font-weight:900;
+    }
+
+    details{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:12px 14px;
+      background:rgba(0,0,0,.12);
+      margin-top:10px;
+    }
+    summary{cursor:pointer;font-weight:900}
+    .fine{margin-top:14px;color:rgba(234,255,242,.60);font-size:12px}
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">SEO31 · USDT 安全自检中心（60 秒）</span>
+      <h1>USDT 转账安全自检（2025）：防剪贴板替换/假客服/假网站 一套流程搞定</h1>
+      <p class="sub">
+        大多数损失不是“链上丢币”，而是<strong>转账前</strong>被诱导或被替换。
+        你只要做 3 件事：<b>核对网络 → 核对地址前6后6 → TXID 留证</b>，风险会下降一大截。
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="https://usdtonlinecasino.com/" target="_blank" rel="noopener">usdtonlinecasino.com 资源中心</a>
+        <a class="btn gold" href="https://usdtonlinecasino.com/usdt-payment-guide/" target="_blank" rel="noopener">USDT 支付教学</a>
+        <a class="btn" href="https://usdtonlinecasino.com/usdt-faq/" target="_blank" rel="noopener">USDT FAQ</a>
+        <a class="btn" href="https://usdtonlinecasino.com/usdt-news/" target="_blank" rel="noopener">USDT 资讯</a>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><b>地址替换最常见</b><p>复制粘贴后不核对，最容易翻车</p></div>
+        <div class="kpi"><b>假客服最“像真的”</b><p>逼你“再转一笔/补差”是高危信号</p></div>
+        <div class="kpi"><b>留证能缩短扯皮</b><p>TXID+截图=最硬证据</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>1）60 秒安全自检（转账前逐条打勾）</h2>
+      <div class="check">
+        <div class="row">
+          <div class="box" aria-hidden="true"></div>
+          <div>
+            <b>网络一致性（TRC20 / ERC20 / BEP20）</b>
+            <p>对方写什么网络就用什么网络；不确定就先问清楚，别猜。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box" aria-hidden="true"></div>
+          <div>
+            <b>地址“前6后6”核对</b>
+            <p>粘贴后必须核对前6后6，能防手误与剪贴板替换。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box" aria-hidden="true"></div>
+          <div>
+            <b>新地址先小额测试</b>
+            <p>第一次转给新地址：先小额成功，再放大金额。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box" aria-hidden="true"></div>
+          <div>
+            <b>TXID 留证（截图 + 复制）</b>
+            <p>TXID 一出来立刻保存：时间、金额、To 地址前6后6截图。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">✅ 只要坚持“网络一致 + 前6后6 + TXID留证”，绝大多数问题能提前避开。</div>
+    </section>
+
+    <section class="section">
+      <h2>2）三种高危信号（遇到就先停）</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>信号 A：要求你“再转一笔/补差才能解冻”</h3>
+          <ul>
+            <li>先索要：工单号、流程细则、ETA（预计完成时间）</li>
+            <li>没有可验证信息前，不要继续转账</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>信号 B：客服只让你“等”，不给工单/进度</h3>
+          <ul>
+            <li>你要的不是“等”，你要的是：阈值、进度、ETA</li>
+            <li>把 TXID+截图一次性给齐，减少来回扯</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>信号 C：域名/页面看起来像官方但细节不对</h3>
+        <ul>
+          <li>优先从“收藏夹/历史记录/站内跳转”进入，不要点陌生私信链接</li>
+          <li>注意拼写、子域名、跳转链路（有时会先跳再落地）</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>3）工单模板（复制就能用）</h2>
+      <div class="code">
+【问题类型】USDT 转账核对/延迟排查<br>
+【网络】TRC20 / ERC20 / BEP20：_____<br>
+【金额】____ USDT<br>
+【收款地址】_____（前6：_____ / 后6：_____）<br>
+【转账时间】_____<br>
+【TXID】_____（截图已附）<br><br>
+请告知：入账所需确认数阈值是多少？若确认数已达标仍未入账，请提供：工单号、处理进度与 ETA（预计完成时间）。
+      </div>
+      <p class="fine">免责声明：本页为科普/教育用途，请遵守所在地法律与规则，自行评估风险。</p>
+    </section>
+
+    <section class="section">
+      <h2>FAQ（常见问题）</h2>
+      <details><summary>Q1：为什么每次都要核对地址前6后6？</summary><p>它能防剪贴板替换与手误，是最低成本的安全动作。</p></details>
+      <details><summary>Q2：TXID 没出来怎么办？</summary><p>多半代表交易未真正广播到链上（未签名完成/被取消/仍在钱包内部处理）。先确认是否真的发出。</p></details>
+      <details><summary>Q3：确认数达标仍未入账？</summary><p>常见原因是平台队列/批处理或风控审核。用 TXID + 截图提交工单索要进度与 ETA。</p></details>
+      <details><summary>Q4：对方让“补差/再转一笔”才能处理可信吗？</summary><p>高危信号。先要工单号与流程细则，未拿到可验证信息前不要继续转账。</p></details>
+    </section>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"为什么每次都要核对地址前6后6？",
+        "acceptedAnswer":{"@type":"Answer","text":"它能防剪贴板替换与手误，是最低成本的安全动作。"}},
+      {"@type":"Question","name":"TXID 没出来怎么办？",
+        "acceptedAnswer":{"@type":"Answer","text":"多半代表交易未真正广播到链上（未签名完成/被取消/仍在钱包内部处理）。先确认是否真的发出。"}},
+      {"@type":"Question","name":"确认数达标仍未入账？",
+        "acceptedAnswer":{"@type":"Answer","text":"常见原因是平台队列/批处理或风控审核。用 TXID + 截图提交工单索要进度与 ETA。"}},
+      {"@type":"Question","name":"对方让补差/再转一笔才能处理可信吗？",
+        "acceptedAnswer":{"@type":"Answer","text":"高危信号。先要工单号与流程细则，未拿到可验证信息前不要继续转账。"}}
+    ]
+  }
+  </script>
+</body>
+</html>
